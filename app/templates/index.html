@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestureStore | Modern Shopping</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">GESTURE STORE</div>
+        <div class="nav-links">
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Real-time Gesture Control Alpha</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero animate-fade-in">
+            <h1>Experience the Future.</h1>
+            <p>Navigate our premium collection using only your hands. Scroll, click, and explore with seamless gesture recognition.</p>
+        </section>
+
+        <div class="container">
+            <div class="product-grid">
+                {% for product in products %}
+                <div class="product-card animate-fade-in" onclick="window.location.href='/product/{{ product.id }}'">
+                    <div class="product-image-placeholder">📦</div>
+                    <div style="margin-top: 1.5rem;">
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.description }}</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="price">${{ "%.2f"|format(product.price) }}</span>
+                            <span class="btn">View Detail</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    <div id="webcam-container">
+        <video id="video-preview" muted></video>
+        <canvas id="skeleton-canvas"></canvas>
+        <div class="gesture-status" id="gesture-text">Initializing Camera...</div>
+    </div>
+
+    <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

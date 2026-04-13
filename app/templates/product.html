@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }} | GestureStore</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">GESTURE STORE</div>
+        <div class="nav-links">
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Real-time Gesture Control Alpha</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="/" class="back-link">
+            ← Back to Products (Wave Palm to go back)
+        </a>
+
+        <section class="product-detail animate-fade-in">
+            <div class="product-image-placeholder">🛒</div>
+            <div class="product-info">
+                <h1>{{ product.name }}</h1>
+                <p>{{ product.description }}</p>
+                <div class="price">
+                    ${{ "%.2f"|format(product.price) }}
+                </div>
+                <button class="btn" onclick="alert('Added to cart!')">
+                    Add to Cart
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <div id="webcam-container">
+        <video id="video-preview" muted></video>
+        <canvas id="skeleton-canvas"></canvas>
+        <div class="gesture-status" id="gesture-text">Initializing Camera...</div>
+    </div>
+
+    <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>
