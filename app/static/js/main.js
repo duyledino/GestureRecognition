@@ -170,11 +170,11 @@ class GestureApp {
 
         switch (this.currentGesture) {
             case 'index_up':
-                this.scrollSpeed = -5; // Scroll up
+                this.scrollSpeed = -3; // Scroll up
                 break;
 
             case 'index_down':
-                this.scrollSpeed = 5;  // Scroll down
+                this.scrollSpeed = 3;  // Scroll down
                 break;
 
             case 'palm':

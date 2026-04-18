@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ product.name }} | GestureStore</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -13,26 +14,29 @@
     <header>
         <div class="logo">GESTURE STORE</div>
         <div class="nav-links">
-            <span style="color: var(--text-secondary); font-size: 0.9rem;">Real-time Gesture Control Alpha</span>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Gesture Control Alpha</span>
         </div>
     </header>
 
     <div class="container">
         <a href="/" class="back-link">
-            ← Back to Products (Wave Palm to go back)
+            Back to Products (Wave Palm to go back)
         </a>
 
         <section class="product-detail animate-fade-in">
-            <div class="product-image-placeholder">🛒</div>
+            <div class="product-image-placeholder">Cart</div>
             <div class="product-info">
                 <h1>{{ product.name }}</h1>
                 <p>{{ product.description }}</p>
                 <div class="price">
                     ${{ "%.2f"|format(product.price) }}
                 </div>
-                <button class="btn" onclick="alert('Added to cart!')">
+                <button class="btn" id="add-to-cart-btn" data-product-id="{{ product.id }}">
                     Add to Cart
                 </button>
+                <p style="margin-top: 1rem; color: var(--text-secondary);">
+                    Show a shaka hand or a relaxed open hand to add this product to your cart.
+                </p>
             </div>
         </section>
     </div>
@@ -43,6 +47,9 @@
         <div class="gesture-status" id="gesture-text">Initializing Camera...</div>
     </div>
 
-    <script type="module" src="/static/js/main.js"></script>
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="/static/js/product.js"></script>
 </body>
 </html>
