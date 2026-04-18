@@ -26,3 +26,8 @@ The server is currently running at `http://localhost:8000`.
 1. Allow camera access.
 2. Position your hand in the webcam view (bottom right).
 3. Use the mapping above to navigate the site!
+
+
+### How to install dependencies
+1. pip install -r requirements.txt >> Install dependencies
+2. Start project >> python main.py 
